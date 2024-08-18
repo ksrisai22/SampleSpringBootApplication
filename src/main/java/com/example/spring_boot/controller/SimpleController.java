@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.spring_boot.model.City;
 import com.example.spring_boot.service.WorldService;
 
 import ch.qos.logback.classic.Logger;
@@ -21,12 +20,20 @@ public class SimpleController {
 	@Autowired
 	private WorldService worldService;
 	
-	@Operation(summary = "Get a book by its id")
+	@Operation(summary = "Welcome endpoint")
 	@ApiResponses(value = { @ApiResponse })
 	@GetMapping("/welcome")
-	public String simpleController() {
+	public String welcomeController() {
 		logger.info("Called Simeple Controller");
-		return worldService.someService();
+		return worldService.userService();
+	}
+	
+	@Operation(summary = "Admin endpoint")
+	@ApiResponses(value = { @ApiResponse })
+	@GetMapping("/admin")
+	public String adminController() {
+		logger.info("Called Simeple Controller");
+		return worldService.adminService();
 	}
 	
 	

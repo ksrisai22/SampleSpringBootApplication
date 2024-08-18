@@ -18,10 +18,16 @@ public class WorldService {
 	
 	Logger logger = LoggerFactory.getLogger(WorldService.class);
 	
-	public String someService() {
-		logger.debug("In World Service");
+	public String userService() {
+		logger.debug("In World Service :: user Service");
 		Optional<City> citiesIterable = worldRepo.findById(2);
-		return "<h1>From Some Service<h1>";
+		return "<h1>From User Service<h1>";
+	}
+	
+	public String adminService() {
+		logger.debug("In World Service :: admin Service");
+
+		return "<h1>From Admin Service<h1>";
 	}
 
 }
